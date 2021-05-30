@@ -3,6 +3,7 @@ package websocket
 import (
 	"net/http"
 	"strconv"
+	"os"
 
 	"github.com/cloudwebrtc/flutter-webrtc-server/pkg/logger"
 	"github.com/gorilla/websocket"
@@ -21,11 +22,16 @@ type WebSocketServerConfig struct {
 func DefaultConfig() WebSocketServerConfig {
 	return WebSocketServerConfig{
 		Host:           "0.0.0.0",
-		Port:           8086,
+		Port:           ToInt(os.Getenv("PORT")),
 		HTMLRoot:       "web",
 		WebSocketPath:  "/ws",
 		TurnServerPath: "/api/turn",
 	}
+}
+
+func ToInt(param string) int {
+	result, _ := strconv.Atoi(param)
+	return result
 }
 
 type WebSocketServer struct {

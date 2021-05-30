@@ -40,8 +40,9 @@ func main() {
 
 	port, err := cfg.Section("general").Key("port").Int()
 	if err != nil {
-		port = 8086
+		port = websocket.ToInt(os.Getenv("PORT"))
 	}
+
 
 	htmlRoot := cfg.Section("general").Key("html_root").String()
 
