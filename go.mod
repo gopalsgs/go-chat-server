@@ -1,6 +1,6 @@
 module github.com/cloudwebrtc/flutter-webrtc-server
 
-// +heroku goVersion go1.11
+// +heroku goVersion go1.13
 go 1.13
 
 require (
