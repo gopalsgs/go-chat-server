@@ -40,7 +40,7 @@ func main() {
 
 	port, err := cfg.Section("general").Key("port").Int()
 	if err != nil {
-		port = websocket.ToInt(os.Getenv("PORT"))
+		port = 8000
 	}
 
 
